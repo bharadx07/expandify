@@ -2,7 +2,7 @@
   "name": "expandify",
   "version": "1.0.9",
   "description": "🚀 Simple express.js tool to evaluate expressions in HTML templates.",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {},
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
   "author": "Bharadwaj Duggaraju",
   "license": "MIT",
   "dependencies": {
-    "better-eval": "^1.2.0"
+    "better-eval": "^1.2.5"
   },
   "bugs": {
     "url": "https://github.com/bharadwajduggaraju/expandify/issues"
