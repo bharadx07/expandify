@@ -7,7 +7,20 @@ const expandify = (fileName, variables) => {
   const evaled = raw.replace(/{(.*)}/g, (expression) => {
     const withoutCurly = expression.substring(1, expression.length - 1);
 
-    return betterEval(withoutCurly, variables);
+    const raw = betterEval(withoutCurly, variables);
+
+    /* react style checking
+      - if array, join together
+      - if object, stringify
+      - if string, keep the same
+    */
+    if (Array.isArray(raw)) {
+      return raw.join("");
+    } else if (typeof raw === "object" && raw !== null) {
+      return JSON.stringify(raw);
+    }
+
+    return raw;
   });
 
   return evaled;
