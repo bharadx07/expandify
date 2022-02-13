@@ -9,7 +9,7 @@ const expandify = (fileName, variables) => {
 
     const raw = betterEval(withoutCurly, variables);
 
-    /* react style checking
+    /* smart checking
       - if array, join together
       - if object, stringify
       - if string, keep the same
