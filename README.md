@@ -73,7 +73,7 @@ You can even evaluate complex lists by mapping and then joining variables:
 <html>
   <body>
     <ul>
-      {todos.map(todo => `<li>${todo}</li>`).join("")}
+      {todos.map(todo => `<li>${todo}</li>`)}
     </ul>
   </body>
 </html>
