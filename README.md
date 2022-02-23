@@ -61,9 +61,7 @@ You can also evaluate variables from your express application.
 Then, when you call ```expandify()``` pass in the variables like this:
 
 ```js
-res.send(
-  expandify(__dirname + "/index.html", { name: "Bob", greeting: "How's life!" })
-);
+expandify(__dirname + "/index.html", { name: "Bob", greeting: "How's life!" })
 ```
 
 ## Advanced Usage
