@@ -43,6 +43,13 @@ const expandify = (fileName, variables) => {
       return split.replace(":", "");
     });
 
+  // special shortcut to bind props
+  evaled = evaled.replace(/:(.*) /g, (e) => {
+    const withoutcolon = e.replace(":", "").replace(" ", "");
+
+    return `${withoutcolon}="${betterEval(withoutcolon, variables)}"`;
+  });
+
   return evaled;
 };
 

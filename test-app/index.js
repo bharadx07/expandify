@@ -5,5 +5,6 @@ console.log(
     todos: ["a", "b", "c"],
     name: "tom",
     boolean: true,
+    src: "fsd",
   })
 );
