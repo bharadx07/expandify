@@ -4,7 +4,7 @@ const fs = require("fs");
 const expandify = (fileName, variables) => {
   const raw = fs.readFileSync(fileName, "utf-8");
 
-  const evaled = raw.replace(/{(.*)}/g, (expression) => {
+  let evaled = raw.replace(/{(.*)}/g, (expression) => {
     const withoutCurly = expression.substring(1, expression.length - 1);
 
     const raw = betterEval(withoutCurly, variables);
@@ -22,6 +22,26 @@ const expandify = (fileName, variables) => {
 
     return raw;
   });
+
+  // bind props with :propname="propvalue"
+  evaled = evaled
+    .replace(/:(.*)="(.*)"/g, (e) => {
+      const split = e.replace(/"(.*)"/g, (x) => {
+        const nostr = x.substring(1, x.length - 1);
+
+        return `"${betterEval(nostr, variables)}"`;
+      });
+
+      return split.replace(":", "");
+    })
+    .replace(/:(.*)='(.*)'/g, (e) => {
+      const split = e.replace(/'(.*)'/g, (x) => {
+        const nostr = x.substring(1, x.length - 1);
+
+        return `'${betterEval(nostr, variables)}'`;
+      });
+      return split.replace(":", "");
+    });
 
   return evaled;
 };
