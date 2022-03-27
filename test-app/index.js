@@ -1,10 +1,11 @@
 const expandify = require("../src");
+const fs = require("fs");
 
-console.log(
-  expandify(__dirname + "/index.html", {
-    todos: ["a", "b", "c"],
-    name: "tom",
-    boolean: true,
-    src: "fsd",
-  })
-);
+const raw = expandify(__dirname + "/index.html", {
+  todos: ["a", "b", "c"],
+  name: "tom",
+  boolean: true,
+  src: "fsd",
+});
+
+fs.writeFileSync("raw.html", raw);
