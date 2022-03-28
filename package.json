@@ -1,6 +1,6 @@
 {
   "name": "expandify",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "🚀 Simple express.js tool to evaluate expressions in HTML templates.",
   "main": "src/index.js",
   "scripts": {},
