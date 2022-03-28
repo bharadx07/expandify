@@ -45,9 +45,9 @@ The expandify function takes the path to your template, and returns a string as 
 
 Once you run `node index.js`, head to `localhost:8080` and you will see `Hey expandify templates!` on the screen!
 
-# Features
+## Features
 
-## Embedding Values
+### Embedding Values
 
 You can embed any values or expressions into your templates:
 
@@ -107,7 +107,7 @@ Or embed JSON, which will be stringified for you:
 </html>
 ```
 
-# Binding Props
+### Binding Props
 
 You can bind an expression to any prop with the `bind:propname` directive:
 
@@ -150,7 +150,7 @@ A shortcut for binding a variable to a attribute with the same name is `bind:att
 expandify(__dirname + "/index.html", { placeholder: "Hey!" });
 ```
 
-# Styling with SCSS
+### Styling with SCSS
 To write embedded styles with scss, use the ```<style lang="scss">``` tag:
 
 ```html
