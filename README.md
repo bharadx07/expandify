@@ -2,14 +2,14 @@
 
 🚀 Simple HTML templating for expressjs.
 
-## Table of contents
+## Table of Contents
 - [Installation](#installation)
 - [Getting Started](#getting-started)
 - [Template Features](#features) 
   - [Embedding Values](#embedding-values)
   - [Binding Attributes](#binding-attributes)
   - [Styling with SCSS](#styling-with-scss)
-- [License](#license)
+
 
 ## Installation
 
@@ -129,7 +129,7 @@ You can bind an expression to any attribute with the `bind:attribute` directive:
 </html>
 ```
 
-Or use any variable passed in through your javascript code:
+Or bind an attribute to a variable passed in through your javascript code:
 
 ```html
 <!DOCTYPE html>
@@ -167,15 +167,15 @@ To write embedded styles with scss, use the ```<style lang="scss">``` tag:
 <html>
   <head>
     <style lang="scss">
-      $color: red;
+      $size: 10rem;
 
       body {
-        color: $color;
+        font-size: $size;
       }
     </style>
   </head>
   <body>
-    Red text!
+    Large text!
   </body>
 </html>
 ```
