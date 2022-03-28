@@ -2,6 +2,15 @@
 
 🚀 Simple HTML templating for expressjs.
 
+## Table of contents
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+- [Template Features](#features) 
+  - [Embedding Values](#embedding-values)
+  - [Binding Attributes](#binding-attributes)
+  - [Styling with SCSS](#styling-with-scss)
+- [License](#license)
+
 ## Installation
 
 ```sh
@@ -45,7 +54,7 @@ The expandify function takes the path to your template, and returns a string as 
 
 Once you run `node index.js`, head to `localhost:8080` and you will see `Hey expandify templates!` on the screen!
 
-## Features
+## Template Features
 
 ### Embedding Values
 
@@ -107,9 +116,9 @@ Or embed JSON, which will be stringified for you:
 </html>
 ```
 
-### Binding Props
+### Binding Attributes
 
-You can bind an expression to any prop with the `bind:propname` directive:
+You can bind an expression to any attribute with the `bind:attribute` directive:
 
 ```html
 <!DOCTYPE html>
@@ -135,7 +144,7 @@ Or use any variable passed in through your javascript code:
 expandify(__dirname + "/index.html", { myPlaceholder: "Hey!" });
 ```
 
-A shortcut for binding a variable to a attribute with the same name is `bind:attribute:`:
+A shortcut for binding a variable to a attribute with the same name is `bind:attribute:` :
 
 ```html
 <!DOCTYPE html>
