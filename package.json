@@ -16,7 +16,9 @@
   "author": "Bharadwaj Duggaraju",
   "license": "MIT",
   "dependencies": {
-    "better-eval": "^1.2.7"
+    "better-eval": "^1.3.0",
+    "cheerio": "^1.0.0-rc.10",
+    "sass": "^1.49.9"
   },
   "bugs": {
     "url": "https://github.com/bharadwajduggaraju/expandify/issues"
