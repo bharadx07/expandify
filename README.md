@@ -172,3 +172,7 @@ To write embedded styles with scss, use the ```<style lang="scss">``` tag:
 ```
 
 You dont have to do anything else, expandify will automatically compile the scss for you!
+
+## License
+
+**expandify** is [MIT-licensed](LICENSE) open-source software created by Bharadwaj Duggaraju.
