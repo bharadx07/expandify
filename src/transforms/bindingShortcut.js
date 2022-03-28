@@ -6,6 +6,7 @@ function bindingShortcut(prev, variables) {
       .replace("bind:", "")
       .replace(" ", "")
       .replace(":", "");
+
     return `${withoutcolon}="${betterEval(withoutcolon, variables)}"`;
   });
 }

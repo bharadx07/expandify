@@ -1,6 +1,6 @@
 # expandify
 
-🚀 Simple express.js tool to evaluate expressions in HTML templates.
+🚀 Simple HTML templating for expressjs.
 
 ## Installation
 
@@ -8,21 +8,20 @@
 npm install expandify
 ```
 
-## Usage
+## Getting Started
 
-First create a HTML file with things you want to be evaluated (index.html).
+First create a HTML file that will serve as your template (index.html).
 
 ```html
 <!DOCTYPE html>
 <html>
   <body>
-    <h1>Hey {"BOB".toLowerCase()}</h1>
-    <p>1+1 is equal to {1+1}</p>
+    <h1>Hey expandify templates!</h1>
   </body>
 </html>
 ```
 
-Then create a express application with the tool (index.js).
+Then create a express application (index.js).
 
 ```sh
 npm i express
@@ -35,14 +34,19 @@ const express = require("express");
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send(expandify(__dirname + "/index.html"));
+  res.send("Hey expandify!");
 });
 
 app.listen(8080);
 ```
 
-Once you run the application, head to `localhost:8080` and you will see all
-the expressions evaluated!
+If we want to render our template instead of just displaying the string, all we have to do is replace the string with `expandify(filePath)`:
+
+```js
+res.send(expandify(__dirname + "/index.html"));
+```
+
+Once you run the application, head to `localhost:8080` and you will see ```Hey expandify templates!``` on the screen!
 
 ## Variables
 
@@ -58,25 +62,31 @@ You can also evaluate variables from your express application.
 </html>
 ```
 
-Then, when you call ```expandify()``` pass in the variables like this:
+Then, when you call `expandify()` pass in the variables like this:
 
 ```js
-expandify(__dirname + "/index.html", { name: "Bob", greeting: "How's life!" })
+expandify(__dirname + "/index.html", { name: "Bob", greeting: "How's life!" });
 ```
 
 ## Advanced Usage
+
 You can even evaluate complex lists by mapping and then joining variables:
+
 ```html
 <!DOCTYPE html>
 <html>
   <body>
     <ul>
-      {todos.map(todo => `<li>${todo}</li>`)}
+      {todos.map(todo => `
+      <li>${todo}</li>
+      `)}
     </ul>
   </body>
 </html>
 ```
+
 ```js
-expandify(__dirname + "/index.html", { todos: ["Do chores", "Do homework"] })
+expandify(__dirname + "/index.html", { todos: ["Do chores", "Do homework"] });
 ```
+
 The possibilities are endless!
