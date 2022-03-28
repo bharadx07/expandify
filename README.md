@@ -21,7 +21,7 @@ First create a HTML file that will serve as your template (index.html).
 </html>
 ```
 
-Then create a express application (index.js).
+Then create a express application with expandify (index.js).
 
 ```sh
 npm i express
@@ -30,23 +30,20 @@ npm i express
 ```js
 const expandify = require("expandify");
 const express = require("express");
+const path = require("path");
 
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send("Hey expandify!");
+  res.send(expandify(path.join(__dirname, "index.html")));
 });
 
 app.listen(8080);
 ```
 
-If we want to render our template instead of just displaying the string, all we have to do is replace the string with `expandify(filePath)`:
+The expandify function takes the path to your template, and returns a string with your rendered template. You can use the ```res.send()``` function to display the rendered template's HTML.
 
-```js
-res.send(expandify(__dirname + "/index.html"));
-```
-
-Once you run the application, head to `localhost:8080` and you will see ```Hey expandify templates!``` on the screen!
+Once you run ```node index.js```, head to `localhost:8080` and you will see `Hey expandify templates!` on the screen!
 
 ## Variables
 
