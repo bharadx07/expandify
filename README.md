@@ -41,7 +41,7 @@ app.get("/", (req, res) => {
 app.listen(8080);
 ```
 
-The expandify function takes the path to your template, and returns a string with your rendered template. You can use the ```res.send()``` function to display the rendered template's HTML.
+The expandify function takes the path to your template, and returns a string as your compiled template. You can use the ```res.send()``` function to display the compiled template's HTML.
 
 Once you run ```node index.js```, head to `localhost:8080` and you will see `Hey expandify templates!` on the screen!
 
