@@ -9,6 +9,8 @@ function scssSupport(prev) {
     return $(this).text(sass.compileString($(el).html()).css);
   });
 
+  $("style[lang=scss]").removeAttr("lang");
+
   return $.html();
 }
 
