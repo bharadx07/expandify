@@ -7,7 +7,7 @@
 - [Getting Started](#getting-started)
 - [Template Features](#features) 
   - [Embedding Values](#embedding-values)
-  - [Binding Attributes](#binding-attributes)
+  - [Evaluated Attributes](#evaluated-attributes)
   - [Styling with SCSS](#styling-with-scss)
 
 
@@ -116,26 +116,26 @@ Or embed JSON, which will be stringified for you:
 </html>
 ```
 
-### Binding Attributes
+### Evaluated Attributes
 
-You can bind an expression to any attribute with the `bind:attribute` directive:
+You can set an attribute equal to any expression with the `$:attribute` directive:
 
 ```html
 <!DOCTYPE html>
 <html>
   <body>
-    <input type="number" bind:value="1+1" />
+    <input type="number" $:value="1+1" />
   </body>
 </html>
 ```
 
-Or bind an attribute to a variable passed in through your javascript code:
+Or set an attribute equal to a variable passed in through your javascript code:
 
 ```html
 <!DOCTYPE html>
 <html>
   <body>
-    <input type="text" bind:placeholder="myPlaceholder" />
+    <input type="text" $:placeholder="myPlaceholder" />
   </body>
 </html>
 ```
@@ -144,13 +144,13 @@ Or bind an attribute to a variable passed in through your javascript code:
 expandify(__dirname + "/index.html", { myPlaceholder: "Hey!" });
 ```
 
-A shortcut for binding a variable to a attribute with the same name is `bind:attribute:` :
+A shortcut for assigning a variable to a attribute with the same name is `$:attribute:` :
 
 ```html
 <!DOCTYPE html>
 <html>
   <body>
-    <input type="text" bind:placeholder: />
+    <input type="text" $:placeholder: />
   </body>
 </html>
 ```
