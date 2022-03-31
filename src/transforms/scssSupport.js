@@ -2,7 +2,7 @@ const sass = require("sass");
 const cherrio = require("cheerio");
 
 function scssSupport(prev) {
-  const $ = cherrio.load(prev);
+  const $ = cherrio.load(prev, null, false);
 
   $("style[lang=scss]").map(function (i, el) {
     // this === el
