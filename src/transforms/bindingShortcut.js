@@ -1,9 +1,9 @@
 const betterEval = require("better-eval");
 
 function bindingShortcut(prev, variables) {
-  return prev.replace(/bind:(.*):/g, (e) => {
+  return prev.replace(/\$:(.*):/g, (e) => {
     const withoutcolon = e
-      .replace("bind:", "")
+      .replace("$:", "")
       .replace(" ", "")
       .replace(":", "");
 

@@ -1,7 +1,7 @@
 {
   "name": "expandify",
   "version": "1.2.0",
-  "description": "🚀 Simple express.js tool to evaluate expressions in HTML templates.",
+  "description": "🚀 Simple HTML templating for expressjs.",
   "main": "src/index.js",
   "scripts": {},
   "repository": {
@@ -9,8 +9,8 @@
     "url": "git+https://github.com/bharadwajduggaraju/expandify.git"
   },
   "keywords": [
-    "express",
-    "expand",
+    "expressjs",
+    "templating",
     "better-eval"
   ],
   "author": "Bharadwaj Duggaraju",
