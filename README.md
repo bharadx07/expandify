@@ -37,20 +37,20 @@ npm i express
 ```
 
 ```js
-const expandify = require("expandify");
+const {renderFile} = require("expandify");
 const express = require("express");
 const path = require("path");
 
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send(expandify(path.join(__dirname, "index.html")));
+  res.send(renderFile(path.join(__dirname, "index.html")));
 });
 
 app.listen(8080);
 ```
 
-The expandify function takes the path to your template, and returns a string as your compiled template. You can use the `res.send()` function to display the compiled template's HTML.
+The ```renderFile``` function takes the path to your template, and returns a string as your compiled template. You can use the `res.send()` function to display the compiled template's HTML. You can also use a string instead of another file for your template with the ```render``` function. However, these docs will use the ```renderFile``` function for consistancy. It is also a good idea to seperate your templates into another file.
 
 Once you run `node index.js`, head to `localhost:8080` and you will see `Hey expandify templates!` on the screen!
 
@@ -81,10 +81,10 @@ You can also embed variables from your javascript code:
 </html>
 ```
 
-Then, when you call `expandify()` pass the variables like this:
+Then, when you call `renderFile()` pass the variables like this:
 
 ```js
-expandify(__dirname + "/index.html", { name: "Bob", greeting: "How's life!" });
+renderFile(__dirname + "/index.html", { name: "Bob", greeting: "How's life!" });
 ```
 
 You can embed lists (which will be joined), or map through them. This must stay on one line:
@@ -101,7 +101,7 @@ You can embed lists (which will be joined), or map through them. This must stay 
 ```
 
 ```js
-expandify(__dirname + "/index.html", { todos: ["Do chores", "Do homework"] });
+renderFile(__dirname + "/index.html", { todos: ["Do chores", "Do homework"] });
 ```
 
 Or embed JSON, which will be stringified for you:
@@ -141,7 +141,7 @@ Or set an attribute equal to a variable passed in through your javascript code:
 ```
 
 ```js
-expandify(__dirname + "/index.html", { myPlaceholder: "Hey!" });
+renderFile(__dirname + "/index.html", { myPlaceholder: "Hey!" });
 ```
 
 A shortcut for assigning a variable to a attribute with the same name is `$:attribute:` :
@@ -156,7 +156,7 @@ A shortcut for assigning a variable to a attribute with the same name is `$:attr
 ```
 
 ```js
-expandify(__dirname + "/index.html", { placeholder: "Hey!" });
+renderFile(__dirname + "/index.html", { placeholder: "Hey!" });
 ```
 
 ### Styling with SCSS
@@ -180,7 +180,7 @@ To write embedded styles with scss, use the ```<style lang="scss">``` tag:
 </html>
 ```
 
-You dont have to do anything else, expandify will automatically compile the scss for you!
+You dont have to do anything else, expandify will automatically compile the SCSS for you!
 
 ## License
 
