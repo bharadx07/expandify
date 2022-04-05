@@ -3,10 +3,10 @@
  * Copyright(c) 2022 Bharadwaj Duggaraju
  * MIT Licensed
  */
-const render = require("./render");
-const renderFile = require("./renderFile");
+const { render, renderFile } = require("./core");
 
 module.exports = {
   render,
   renderFile,
 };
+

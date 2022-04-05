@@ -1,7 +1,8 @@
+const createTransform = require("../createTransform");
 const betterEval = require("better-eval");
 
-function embeds(prev, variables) {
-  return prev.replace(/{{(.*)}}/g, (expression) => {
+module.exports = createTransform("binding", /{{(.*)}}/g, (variables) => {
+  return (expression) => {
     const withoutCurly = expression.substring(2, expression.length - 2);
 
     const raw = betterEval(withoutCurly, variables);
@@ -18,7 +19,5 @@ function embeds(prev, variables) {
     }
 
     return raw;
-  });
-}
-
-module.exports = embeds;
+  };
+});
