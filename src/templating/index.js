@@ -5,8 +5,11 @@ const {
   singleQuotes,
 } = require("./evaluated-attributes");
 const scssSupport = require("./scss-support");
+const noHTMLTag = require("./no-html-tag");
 
+// order of exec
 const transformList = [
+  noHTMLTag,
   embeding,
   doubleQuotes,
   singleQuotes,
