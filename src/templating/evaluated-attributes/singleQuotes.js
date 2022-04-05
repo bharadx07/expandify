@@ -1,4 +1,5 @@
 const createTransform = require("../createTransform");
+const betterEval = require("better-eval");
 
 module.exports = createTransform(
   "evaluate props with single quotes",

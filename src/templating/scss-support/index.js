@@ -2,9 +2,9 @@ const createTransform = require("../createTransform");
 const sass = require("sass");
 const cherrio = require("cheerio");
 
-module.exports = createTransform("scss styling support", null, (variables) => {
+module.exports = createTransform("scss styling support", null, () => {
   return (prev) => {
-    const $ = cherrio.load(prev, null, false);
+    const $ = cherrio.load(prev);
 
     $("style[lang=scss]").map(function (i, el) {
       // this === el

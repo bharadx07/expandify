@@ -12,7 +12,9 @@ module.exports = createTransform("binding", /{{(.*)}}/g, (variables) => {
           - if object, stringify
           - if string, keep the same
         */
-    if (Array.isArray(raw)) {
+    if (raw === null || raw === undefined) {
+      return "";
+    } else if (Array.isArray(raw)) {
       return raw.join("");
     } else if (typeof raw === "object" && raw !== null) {
       return JSON.stringify(raw);
