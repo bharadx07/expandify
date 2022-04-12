@@ -235,7 +235,7 @@ To prevent SCSS styles to be linted as errors, create a ```.vscode/settings.json
 }
 ```
 
-If you want to go above and beyond, and get extra autcomplete for SCSS, I recommend you install the [scss-style-tag](https://marketplace.visualstudio.com/items?itemName=sissel.scss-style-tag) extension.
+If you want to go above and beyond, and get autcomplete for SCSS in HTML, I recommend you install the [scss-style-tag](https://marketplace.visualstudio.com/items?itemName=sissel.scss-style-tag) extension.
 
 
 ## License
