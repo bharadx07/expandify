@@ -3,13 +3,15 @@
 🚀 Simple HTML templating for expressjs.
 
 ## Table of Contents
+
 - [Installation](#installation)
 - [Getting Started](#getting-started)
-- [Template Features](#features) 
+- [Template Features](#features)
   - [Embedding Values](#embedding-values)
+    - [@text tag](#text-tag)
+    - [@nohtml tag](#nohtml-tag)
   - [Evaluated Attributes](#evaluated-attributes)
   - [Styling with SCSS](#styling-with-scss)
-
 
 ## Installation
 
@@ -37,7 +39,7 @@ npm i express
 ```
 
 ```js
-const {renderFile} = require("expandify");
+const { renderFile } = require("expandify");
 const express = require("express");
 const path = require("path");
 
@@ -50,7 +52,7 @@ app.get("/", (req, res) => {
 app.listen(8080);
 ```
 
-The ```renderFile``` function takes the path to your template, and returns a string as your compiled template. You can use the `res.send()` function to display the compiled template's HTML. You can also use a string instead of another file for your template with the ```render``` function. However, these docs will use the ```renderFile``` function for consistency. It is also a good idea to seperate your templates into another file.
+The `renderFile` function takes the path to your template, and returns a string as your compiled template. You can use the `res.send()` function to display the compiled template's HTML. You can also use a string instead of another file for your template with the `render` function. However, these docs will use the `renderFile` function for consistency. It is also a good idea to seperate your templates into another file.
 
 Once you run `node index.js`, head to `localhost:8080` and you will see `Hey expandify templates!` on the screen!
 
@@ -116,6 +118,26 @@ Or embed JSON, which will be stringified for you:
 </html>
 ```
 
+### @text tag
+
+The @text tag will change any HTML tags to plain text to prevent XSS. You can use it like this:
+
+```html
+<!DOCTYPE html>
+<html>
+  <body>
+    {{@text tryingToXSS}}
+  </body>
+</html>
+```
+
+```js
+const tryingToXSS = `<img src="alert(hacked!" />`; // or any mal string
+renderFile(__dirname + "/index.html", {tryingToXSS});
+```
+
+Instead of actually rendering the image tag like HTML, the tag will be parsed as text, so you will actually see ```<``` and ```>```. 
+
 ### Evaluated Attributes
 
 You can set an attribute equal to any expression with the `$:attribute` directive:
@@ -160,7 +182,8 @@ renderFile(__dirname + "/index.html", { placeholder: "Hey!" });
 ```
 
 ### Styling with SCSS
-To write embedded styles with scss, use the ```<style lang="scss">``` tag:
+
+To write embedded styles with scss, use the `<style lang="scss">` tag:
 
 ```html
 <!DOCTYPE html>
