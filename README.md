@@ -8,8 +8,8 @@
 - [Getting Started](#getting-started)
 - [Template Features](#features)
   - [Embedding Values](#embedding-values)
-    - [@text tag](#@text-tag)
-    - [@nohtml tag](#@nohtml-tag)
+    - [@text tag](#text-tag)
+    - [@nohtml tag](#nohtml-tag)
   - [Evaluated Attributes](#evaluated-attributes)
   - [Styling with SCSS](#styling-with-scss)
 
