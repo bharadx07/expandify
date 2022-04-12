@@ -8,8 +8,8 @@
 - [Getting Started](#getting-started)
 - [Template Features](#features)
   - [Embedding Values](#embedding-values)
-    - [@text tag](#text-tag)
-    - [@nohtml tag](#nohtml-tag)
+    - [@text tag](#@text-tag)
+    - [@nohtml tag](#@nohtml-tag)
   - [Evaluated Attributes](#evaluated-attributes)
   - [Styling with SCSS](#styling-with-scss)
 
@@ -120,7 +120,7 @@ Or embed JSON, which will be stringified for you:
 
 ### @text tag
 
-The @text tag will change any HTML tags to plain text to prevent XSS. You can use it like this:
+The @text tag will change any HTML tags into plain text to prevent XSS. You can use it like this:
 
 ```html
 <!DOCTYPE html>
@@ -136,7 +136,27 @@ const tryingToXSS = `<img src="alert(hacked!" />`; // or any mal string
 renderFile(__dirname + "/index.html", {tryingToXSS});
 ```
 
-Instead of actually rendering the image tag like HTML, the tag will be parsed as text, so you will actually see ```<``` and ```>```. 
+Instead of actually rendering the image tag like HTML, the tag will be parsed as text, so you will actually see ```<``` and ```>``` (will be converted to entities). 
+
+### @nohtml tag
+
+The @nohtml tag will remove any HTML tags, leaving you with only text. You can use it like this:
+```html
+<!DOCTYPE html>
+<html>
+  <body>
+    {{@nohtml htmlString}}
+  </body>
+</html>
+```
+
+```js
+const htmlString = `<h1>do not render as a h1</h1>`; // or any string with html tags
+renderFile(__dirname + "/index.html", {htmlString});
+```
+
+In this case, the text "do not render as a h1" would be the only thing rendered, as the @nohtml tag would remove any HTML tags present.
+
 
 ### Evaluated Attributes
 
