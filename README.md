@@ -12,6 +12,7 @@
     - [@nohtml tag](#nohtml-tag)
   - [Evaluated Attributes](#evaluated-attributes)
   - [Styling with SCSS](#styling-with-scss)
+    - [SCSS Linting Problems](#scss-linting-problems)
 
 ## Installation
 
@@ -224,6 +225,18 @@ To write embedded styles with scss, use the `<style lang="scss">` tag:
 ```
 
 You dont have to do anything else, expandify will automatically compile the SCSS for you!
+
+### SCSS Linting Problems
+To prevent SCSS styles to be linted as errors, create a ```.vscode/settings.json``` file and add this to contents of it:
+
+```json
+{
+  "css.validate": false
+}
+```
+
+If you want to go above and beyond, and get extra autcomplete for SCSS, I recommend you install the [scss-style-tag](https://marketplace.visualstudio.com/items?itemName=sissel.scss-style-tag) extension.
+
 
 ## License
 

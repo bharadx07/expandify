@@ -1,6 +1,6 @@
 {
   "name": "expandify",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "🚀 Simple HTML templating for expressjs.",
   "main": "src/index.js",
   "scripts": {},
