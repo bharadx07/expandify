@@ -155,7 +155,7 @@ const htmlString = `<h1>do not render as a h1</h1>`; // or any string with html 
 renderFile(__dirname + "/index.html", {htmlString});
 ```
 
-In this case, the text "do not render as a h1" would be the only thing rendered without any h1 tags, as the @nohtml tag would remove them.
+In this case, the text "do not render as a h1" would be rendered without ```<h1></h1>``` tags, as the @nohtml tag would remove them.
 
 
 ### Evaluated Attributes
