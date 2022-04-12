@@ -4,8 +4,10 @@
  * MIT Licensed
  */
 const { render, renderFile } = require("./core");
+const { fileComponent } = require("./components");
 
 module.exports = {
   render,
   renderFile,
+  fileComponent,
 };
