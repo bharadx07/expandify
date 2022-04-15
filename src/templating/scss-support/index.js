@@ -4,7 +4,7 @@ const cherrio = require("cheerio");
 
 module.exports = createTransform("scss styling support", null, () => {
   return (prev) => {
-    const $ = cherrio.load(prev, { xmlMode: true});
+    const $ = cherrio.load(prev, { xmlMode: true, selfClosingTags: false });
 
     $("style[lang=scss]").map(function (i, el) {
       // this === el

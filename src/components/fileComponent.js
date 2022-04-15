@@ -7,9 +7,10 @@ function fileComponent(
   componentData
 ) {
   return {
-    componentName,
-    componentRawTemplate: fs.readFileSync(componentFilePath, "utf8"),
-    componentProps,
+    name: componentName,
+    filePath: fs.readFileSync(componentFilePath, "utf-8"),
+    props: componentProps,
+    componentData,
     componentData,
   };
 }
