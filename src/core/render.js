@@ -7,8 +7,8 @@ const { transformList, executeTransforms } = require("../templating");
  * @param {object} variables data to be used in your templates
  * @returns {string} rendered HTML string
  */
-const render = (templateString, variables) => {
-  return executeTransforms(templateString, variables, transformList);
+const render = (templateString, variables, components) => {
+  return executeTransforms(templateString, variables, components, transformList);
 };
 
 module.exports = render;

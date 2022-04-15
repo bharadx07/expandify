@@ -1,8 +1,10 @@
-function executeTransforms(rawTemplate, variables, transformList) {
+function executeTransforms(rawTemplate, variables, components, transformList) {
   let compiled = rawTemplate;
 
   transformList.forEach((transform) => {
-    if (transform.regex) {
+    if (transform.handlesComponents) {
+      compiled = transform.transformer(components)(compiled);
+    } else if (transform.regex) {
       compiled = compiled.replace(
         transform.regex,
         transform.transformer(variables)

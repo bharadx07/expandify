@@ -7,6 +7,8 @@ const {
 const scssSupport = require("./scss-support");
 const noHTMLTag = require("./no-html-tag");
 const textTag = require("./text-tag");
+// components
+const componentTransformer = require("../components/componentTransformer");
 
 // order of exec
 const transformList = [
@@ -17,6 +19,7 @@ const transformList = [
   singleQuotes,
   shortcut,
   scssSupport,
+  componentTransformer,
 ];
 
 const executeTransforms = require("./executeTransforms");

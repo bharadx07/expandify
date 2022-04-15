@@ -9,10 +9,10 @@ const render = require("./render");
  * @param {object} variables data to be used in your templates
  * @returns {string} rendered HTML string
  */
-const renderFile = (fileName, variables) => {
+const renderFile = (fileName, variables, components) => {
   const raw = fs.readFileSync(fileName, "utf-8");
 
-  return render(raw, variables);
+  return render(raw, variables, components);
 };
 
 module.exports = renderFile;
