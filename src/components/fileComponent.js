@@ -16,7 +16,7 @@ function fileComponent(
 ) {
   return {
     name: componentName,
-    filePath: fs.readFileSync(componentFilePath, "utf-8"),
+    template: fs.readFileSync(componentFilePath, "utf-8"),
     props: componentProps,
     data: componentData
   };

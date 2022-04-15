@@ -8,7 +8,7 @@ const { transformList, executeTransforms } = require("../templating");
  * @returns {string} rendered HTML string
  */
 const render = (templateString, variables, components) => {
-  return executeTransforms(templateString, variables, components, transformList);
+  return executeTransforms(templateString, variables, components, transformList, render);
 };
 
 module.exports = render;
