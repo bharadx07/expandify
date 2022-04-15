@@ -15,13 +15,16 @@ module.exports = createTransform(
         loadTemplate(component.name).map((_, el) => {
           // createData
           const getEl = loadTemplate(el);
-          const data = component.data;
+          let data = {};
+          if (typeof component.data === 'object') data = { ...component.data };
           data.$props = {};
-          component.props.forEach((prop) => {
-            data.$props[prop] = getEl.attr(prop);
-          });
+          if (component.props) {
+            component.props.forEach((prop) => {
+              data.$props[prop] = getEl.attr(prop);
+            });
+          }
 
-          loadTemplate(el).replaceWith($render(component.template, data, []));
+          loadTemplate(el).replaceWith($render(component.template, data, component.childComponents ?? []));
         });
       });
 
