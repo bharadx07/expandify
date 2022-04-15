@@ -11,7 +11,7 @@ module.exports = createTransform(
         expression.replace("@nohtml ", "")
       );
 
-      return cherrio.load(purgeTagValue, null, false).text();
+      return cherrio.load(purgeTagValue, { xmlMode: true }, false).text();
     };
   }
 );
